@@ -46,7 +46,19 @@ def get_products():
 #DELETE A PRODUCT
 @app.route('/del', methods=['DELETE'])
 def delete_product():
+	req_data = request.get_json()
+	p_name = req_data['p_name']
 	
+	find_product = products.find_one({"p_name": p_name})
+	
+	print(find_product)
+
+	if find_product is None:
+		return 'No deleted that product dont exist'
+	else:
+		del_product = products.delete_one({"p_name": p_name})
+		return 'Product deleted'
+
 # RUN APP
 if __name__ == "__main__":
     app.run(debug=True)
