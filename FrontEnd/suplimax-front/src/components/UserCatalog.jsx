@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import index from './index.css'
+import DeleteButton from './DeleteButton'
+import UpdateButton from './UpdateButton'
 
-function HomeCatalog() {
+function UserCatalog() {
     const [products, setProducts] = useState([]);
   
     useEffect(() => {
@@ -17,19 +19,19 @@ function HomeCatalog() {
     }, []);
   
     return (
-      <div className="m-10">
-        <ul>
+      <div className="m-5">
+        <ul className='grid grid-cols-4 gap-1'>
           {products.map((product) => (
-            <li className="bg-red-950 m-5 inline-block p-10" key={product._id.$oid}>
+            <li className="bg-red-950 m-2 inline-block p-10" key={product._id.$oid}>
               <p className="text-amber-600 text-lg font-bold  " >{product.p_name}</p>
-              <p>Cantidad: {product.p_quantity}</p>
               <p>Precio: {product.p_price}</p>
-            </li>
+            </li>    
           ))}
+          
         </ul>
       </div>
     );
   }
   
 
-export default HomeCatalog
+export default UserCatalog

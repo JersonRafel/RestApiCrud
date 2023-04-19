@@ -45,8 +45,6 @@ function MyForm() {
       <input type="number" name="p_quantity" placeholder="Cantidad del producto" onChange={handleChange} value={formState.p_quantity}/>
       <input type="text" name="p_description" placeholder="Descripcion del producto" onChange={handleChange} value={formState.p_description}/>
       <button type="submit">Submit</button>
-      {/*</DeleteButton> AQUI PODRIA PASAR COMO PROP LA ID DEL PRODUCT*/}
-      {/*</UpdateButton>*/}
     </form>
     </>
   );
