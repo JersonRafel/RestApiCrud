@@ -1,0 +1,55 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Outlet, Link } from "react-router-dom";
+
+function MyForm() {
+  const [formState, setFormState] = useState({
+    p_name: '',
+    p_price: '',
+    p_quantity: '',
+    p_description: '',
+  });
+
+  const [serverResponse, setServerResponse] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:5000/add', formState)
+      .then((response) => {
+        function SetresponseServer(){
+          const svresponse = response.data.message
+
+          setServerResponse(svresponse);
+
+          setTimeout(() =>{
+            window.location.href = 'http://localhost:3000/products'
+          }, 1300) 
+        }
+        SetresponseServer();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleChange = (e) => {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <>
+    <p>{serverResponse}</p>
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="p_name" placeholder="Nombre del producto" onChange={handleChange} value={formState.p_name}/>
+      <input type="number" name="p_price" placeholder="Precio del producto" onChange={handleChange} value={formState.p_price}/>
+      <input type="number" name="p_quantity" placeholder="Cantidad del producto" onChange={handleChange} value={formState.p_quantity}/>
+      <input type="text" name="p_description" placeholder="Descripcion del producto" onChange={handleChange} value={formState.p_description}/>
+      <button type="submit">Submit</button>
+      {/*</DeleteButton> AQUI PODRIA PASAR COMO PROP LA ID DEL PRODUCT*/}
+      {/*</UpdateButton>*/}
+    </form>
+    </>
+  );
+}
+
+export default MyForm
