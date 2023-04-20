@@ -38,12 +38,12 @@ function MyForm() {
 
   return (
     <>
-    <p>{serverResponse}</p>
+    <p className='font-bold text-6xl text-center'>{serverResponse}</p>
     <form onSubmit={handleSubmit}>
-      <input type="text" name="p_name" placeholder="Nombre del producto" onChange={handleChange} value={formState.p_name}/>
-      <input type="number" name="p_price" placeholder="Precio del producto" onChange={handleChange} value={formState.p_price}/>
-      <input type="number" name="p_quantity" placeholder="Cantidad del producto" onChange={handleChange} value={formState.p_quantity}/>
-      <input type="text" name="p_description" placeholder="Descripcion del producto" onChange={handleChange} value={formState.p_description}/>
+      <input className='border-2 border-orange-600 rounded-lg py-1 px-2' type="text" name="p_name" placeholder="Nombre del producto" onChange={handleChange} value={formState.p_name}/>
+      <input className='border-2 border-orange-600 rounded-lg py-1 px-2' type="number" name="p_price" placeholder="Precio del producto" onChange={handleChange} value={formState.p_price}/>
+      <input className='border-2 border-orange-600 rounded-lg py-1 px-2' type="number" name="p_quantity" placeholder="Cantidad del producto" onChange={handleChange} value={formState.p_quantity}/>
+      <input className='border-2 border-orange-600 rounded-lg py-1 px-2' type="text" name="p_description" placeholder="Descripcion del producto" onChange={handleChange} value={formState.p_description}/>
       <button type="submit">Submit</button>
     </form>
     </>

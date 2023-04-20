@@ -1,6 +1,6 @@
 function Footer() {
     return(
-        <footer>Suplimax corp</footer>
+        <footer className='font-bold text-6xl text-center'>Suplimax corp</footer>
     )
 }
 

@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Home from './routes/Home'
 import Products from './routes/Products'
 import NoPage from './routes/NoPage'
-
+import Add_Product from './routes/Add_products'
 
 
 
@@ -20,10 +20,10 @@ const router = createBrowserRouter([
     element:<Products/>,
 
   },
-  // {
-  //   path:"/product",
-  //   element:<Product/>,
-  // },
+  {
+    path:"/add_product",
+    element:<Add_Product/>,
+  },
 ]);
 
 

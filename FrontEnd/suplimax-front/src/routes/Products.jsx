@@ -7,7 +7,6 @@ function products(){
 		<>
 			<Header/>
 			<AdminCatalog/>
-			<AddProduct/>
 		</>
 		)
 }
